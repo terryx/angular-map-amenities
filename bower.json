@@ -1,0 +1,15 @@
+{
+  "name": "App Dependency",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": null,
+    "angular": null,
+    "bootstrap": null,
+    "angular-route": null,
+    "angular-sanitize": null,
+    "angular-animate": null,
+    "angular-ui-map": null,
+    "spinjs": null,
+    "seiyria-bootstrap-slider": null
+  }
+}

@@ -1,0 +1,45 @@
+<div class="row">
+    <form role="form" ng-submit="search()">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="glyphicon glyphicon-globe"></i> Places around me
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-xs-2 col-md-2">Radius in metres</label>
+
+                    <div class="col-xs-9 col-md-9">
+
+                        <input class="form-control" id="radius" name="radius" type="text" ng-model="form.radius"
+                               autofocus/>
+                    </div>
+                </div>
+                <br/>
+                <select class="form-control" ng-model="form.types">
+                    <option ng-repeat="row in types" value="{{row.id}}">{{row.value}}</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <button class="btn btn-success btn-lg btn-block" role="button" type="submit">Search</button>
+    </form>
+</div>
+<br/>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="glyphicon glyphicon-globe"></i> Places around me
+            </h3>
+        </div>
+
+        <ul class="list-group" ng-repeat="row in places">
+            <li class="list-group-item">
+                <h4>{{row.name}}</h4>
+                {{row.vicinity}}
+            </li>
+        </ul>
+    </div>
+</div>
