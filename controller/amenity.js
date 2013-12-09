@@ -1,5 +1,5 @@
-app.controller('AmenityCtrl', ['$scope', function ($scope) {
-
+app.controller('AmenityCtrl', ['$scope', '$location', 'storage', function ($scope, $location, storage) {
+console.log(storage)
     $scope.places = [];
     $scope.radiusRange = [
         { id: 500, value: '500m'},
@@ -20,9 +20,15 @@ app.controller('AmenityCtrl', ['$scope', function ($scope) {
         $scope.placeSearch($scope.form).then(function (data) {
 
             $scope.places = data;
+
             $scope.loading.stop();
         });
+    }
 
+    $scope.goToMap = function(data){
+        console.log(data)
+        storage.data = data;
+        $location.path('/map');
     }
 
 }]);

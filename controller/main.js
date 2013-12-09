@@ -1,4 +1,4 @@
-app.controller('MainCtrl', ['$scope', '$q', '$http', function ($scope, $q, $http) {
+app.controller('MainCtrl', ['$scope', '$q', '$http', 'storage', function ($scope, $q, $http, storage) {
 
     var key = 'AIzaSyAfUEBEEkMoTR7w7AbKjnJI9R5F52izyUg';
     var position = {
@@ -43,7 +43,7 @@ app.controller('MainCtrl', ['$scope', '$q', '$http', function ($scope, $q, $http
         { id: 'bakery|food|meal_delivery|meal_takeaway|restaurant|cafe', value: 'Foods' },
         { id: 'amusement_park|aquarium|museum|zoo|shopping_mall|art_gallery|park', value: 'Fun & Travel'},
         { id: 'movie_rental|movie_theater', value: 'Movie'},
-        { id: 'shopping_mall|grocery_or_supermarket|clothing_store|shoe_store|jewelry_store|home_goods_store', value: 'Shopping'},
+        { id: 'shopping_mall', value: 'Shopping Mall'},
         { id: 'beauty_salon|hair_care|health|spa', value: 'Beauty Centre' },
         { id: 'car_dealer|car_rental|car_repair|car_wash', value: 'Car & Services' },
         { id: 'lodging|rv_park|', value: 'Hotel Accommodation'},
@@ -53,7 +53,7 @@ app.controller('MainCtrl', ['$scope', '$q', '$http', function ($scope, $q, $http
         { id: 'cemetery|church|funeral_home|hindu_temple|mosque|place_of_worship|synagogue', value: 'Religion'},
         { id: 'airport|bus_station|subway_station|taxi_stand|train_station', value: 'Transportation'},
         { id: 'parking|gas_station', value: 'Parking & Gas Station' },
-        { id: 'dentist|health|doctor|hospital|pharmacy|physiotherapist|veterinary_care', value: 'Clinic & Hospital'},
+        { id: 'dentist|doctor|hospital|pharmacy|physiotherapist|veterinary_care', value: 'Clinic & Hospital'},
         { id: 'city_hall|courthouse|embassy|establishment|fire_station|local_government_office|police|post_office', value: 'Local Authorities' },
         { id: 'electrician|plumber|locksmith|roofing_contractor|laundry|painter', value: 'Maintenance & Repair'},
         { id: 'accounting|finance|real_estate_agency|lawyer|insurance_agency|general_contractor', value: 'Finance & Firm'},
@@ -93,9 +93,8 @@ app.controller('MainCtrl', ['$scope', '$q', '$http', function ($scope, $q, $http
             return;
         }
 
-        console.log(params)
         var promise = $scope.getGeoLocation().then(function (position) {
-
+            storage.currentLocation = position;
             var url = '';
 
             if (!position.lat || !position.lng) {

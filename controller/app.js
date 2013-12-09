@@ -8,6 +8,7 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
     $routeProvider
         .when('/about', { templateUrl: '/template/about.html', controller: 'AboutCtrl' })
         .when('/', { templateUrl: '/template/amenity.html', controller: 'AmenityCtrl' })
+        .when('/map', { templateUrl: '/template/map.html', controller: 'MapCtrl' })
 
     //$httpProvider.defaults.useXDomain = true;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
