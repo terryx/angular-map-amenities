@@ -1,36 +1,28 @@
-app.controller('AmenityCtrl', ['$scope', function($scope){
-    var slider = $("#radius").slider({
-        min: 10,
-        max: 50000,
-        value: 1000
-    });
+app.controller('AmenityCtrl', ['$scope', function ($scope) {
 
     $scope.places = [];
+    $scope.radiusRange = [
+        { id: 500, value: '500m'},
+        { id: 1000, value: '1km'},
+        { id: 3000, value: '3km'},
+        { id: 5000, value: '5km'},
+        { id: 10000, value: '10km'},
+        { id: 15000, value: '15km'},
+        { id: 25000, value: '25km'},
+        { id: 50000, value: '50km'}
+    ];
 
-    $scope.search = function(){
-      var radius = slider.slider('getValue');
+    $scope.form.radius = $scope.radiusRange[0]['id'];
+    $scope.form.types = $scope.types[0]['id'];
+    $scope.search = function () {
 
-        $scope.form.radius = radius;
+        $scope.loading.start();
+        $scope.placeSearch($scope.form).then(function (data) {
 
-        console.log($scope.form)
-
-       $scope.placeSearch($scope.form).then(function(data){
-
-           $scope.places = data;
-//           for(var i = 0, len=data.length; i<len; i++) {
-//
-//               $scope.places
-//
-//           }
-
-       });
+            $scope.places = data;
+            $scope.loading.stop();
+        });
 
     }
 
-//    var promise = $scope.getLocation();
-//
-//    promise.then(function(data){
-//        console.log(data)
-//
-//    })
 }]);
