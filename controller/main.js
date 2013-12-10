@@ -54,7 +54,7 @@ app.controller('MainCtrl', ['$scope', '$q', '$http', 'storage', function ($scope
         { id: 'airport|bus_station|subway_station|taxi_stand|train_station', value: 'Transportation'},
         { id: 'parking|gas_station', value: 'Parking & Gas Station' },
         { id: 'dentist|doctor|hospital|pharmacy|physiotherapist|veterinary_care', value: 'Clinic & Hospital'},
-        { id: 'city_hall|courthouse|embassy|establishment|fire_station|local_government_office|police|post_office', value: 'Local Authorities' },
+        { id: 'city_hall|courthouse|embassy|fire_station|local_government_office|police|post_office', value: 'Local Authorities' },
         { id: 'electrician|plumber|locksmith|roofing_contractor|laundry|painter', value: 'Maintenance & Repair'},
         { id: 'accounting|finance|real_estate_agency|lawyer|insurance_agency|general_contractor', value: 'Finance & Firm'},
         { id: 'moving_company|travel_agency|storage', value: 'Travel Agency' }

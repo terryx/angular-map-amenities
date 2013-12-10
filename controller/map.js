@@ -23,7 +23,7 @@ app.controller('MapCtrl', ['$scope', '$location', 'storage', function ($scope, $
     var request = {
         origin: coreMap,
         destination: new google.maps.LatLng(location.lat, location.lng),
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: google.maps.TravelMode.WALKING
     };
 
     directionsService.route(request, function(response, status) {

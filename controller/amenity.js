@@ -1,5 +1,16 @@
 app.controller('AmenityCtrl', ['$scope', '$location', 'storage', function ($scope, $location, storage) {
-console.log(storage)
+
+
+    $("#menu-close").click(function (e) {
+        e.preventDefault();
+        $scope.toggleMenu();
+    });
+
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $scope.toggleMenu();
+    });
+
     $scope.places = [];
     $scope.radiusRange = [
         { id: 500, value: '500m'},
@@ -21,14 +32,18 @@ console.log(storage)
 
             $scope.places = data;
 
-            $scope.loading.stop();
+            $scope.loading.stop()
+            $scope.toggleMenu();
         });
     }
 
-    $scope.goToMap = function(data){
-        console.log(data)
+    $scope.goToMap = function (data) {
         storage.data = data;
         $location.path('/map');
+    }
+
+    $scope.toggleMenu = function () {
+       jQuery("#sidebar-wrapper").toggleClass("active");
     }
 
 }]);

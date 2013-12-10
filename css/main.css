@@ -40,3 +40,68 @@ body {
 .list-item:hover {
     background: #f5f5f5;
 }
+
+#sidebar-wrapper {
+    border-radius: 4px;
+    padding: 10px;
+    left: 0;
+    top:0;
+    background: rgb(0,0,0);
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.5s ease-in 0s;
+    -webkit-transition: all 0.5s ease-in 0s;
+    -moz-transition: all 0.5s ease-in 0s;
+    -ms-transition: all 0.5s ease-in 0s;
+    -o-transition: all 0.5s ease-in 0s;
+}
+
+
+#menu-toggle {
+    /*top: 50%;*/
+    /*left: 0;*/
+    /*position: fixed;*/
+    z-index: 1;
+}
+
+@media (max-width: 400px)  {
+
+    #sidebar-wrapper {
+       width: 280px;
+       margin-left: -280px;
+    }
+
+    #sidebar-wrapper.active {
+        left: 280px;
+    }
+}
+
+@media (min-width: 600px)  {
+
+    #sidebar-wrapper {
+        width: 320px;
+        margin-left: -320px;
+    }
+
+    #sidebar-wrapper.active {
+        left: 320px;
+        width: 630px;
+    }
+}
+
+
+#sidebar-wrapper.active {
+    /*width: 350px;*/
+    transition: all 0.5s ease-out 0s;
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -ms-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+    color: #fff;
+}
+
+.toggle {
+    margin: 5px 5px 0 0;
+}
